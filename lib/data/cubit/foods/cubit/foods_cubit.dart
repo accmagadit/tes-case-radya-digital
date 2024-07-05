@@ -23,20 +23,4 @@ class FoodsCubit extends Cubit<FoodsState> {
       rethrow;
     }
   }
-
-  List<Widget> buildAllFoods(BuildContext context) {
-    if (state is FoodsSuccess) {
-      final foods = (state as FoodsSuccess).response.foods;
-      return foods.map((food) => restaurantWidget(context, food, 100, 100)).toList();
-    }
-    return [];
-  }
-
-  List<Widget> buildPopularFoods(BuildContext context) {
-    if (state is FoodsSuccess) {
-      final foods = (state as FoodsSuccess).response.foods;
-      return foods.take(2).map((food) => restaurantWidget(context, food, 100, 100)).toList();
-    }
-    return [];
-  }
 }
